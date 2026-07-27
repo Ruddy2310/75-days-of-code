@@ -1,51 +1,17 @@
-# Day 4 — Content-Based Movie Recommender System
+# Day 6 — Classic ML Mini-Project #1: Titanic Survival Prediction
 
-Part of my [#75DaysOfCode](https://github.com/Ruddy2310/75-days-of-code) challenge.
+Part of my #75DaysOfCode challenge.
 
 ## What it does
-Given a movie title, recommends the top N most similar movies based on:
-- Genres
-- Keywords
-- Cast
-- Director
-- Overview (plot summary)
+Predicts passenger survival on the Titanic using classic supervised ML models, building on the Day 5 EDA.
 
 ## How it works
-1. Combine the text features above into a single "soup" string per movie.
-2. Vectorize the soup using **TF-IDF**.
-3. Compute pairwise **cosine similarity** between all movies.
-4. For a given title, return the movies with the highest similarity score.
+1. Clean and preprocess the Titanic dataset (handle missing values, encode categorical features).
+2. Train classification models (Logistic Regression / Random Forest) on survival outcome.
+3. Evaluate using accuracy, confusion matrix, and feature importance.
 
-## Example output
-```
-Because you watched: The Dark Knight
-                  title  similarity
-  The Dark Knight Rises       0.365
-          Batman Begins       0.307
-         Batman Returns       0.255
-```
-
-## Tech stack
-- Python
-- pandas
-- scikit-learn (TfidfVectorizer, cosine_similarity)
-
-## Run it
-```bash
-pip install pandas scikit-learn
-python recommender.py
-```
-
-## Dataset
-~4800 movies with metadata (genres, cast, crew, keywords, overview).
-
-## Why this matters
-This is a scaled-down version of the recommendation logic I'll need for
-**EmoTunes** (my emotion-aware music recommender project) — swapping
-"movie similarity" for "song similarity based on detected mood" is the
-next step.
-
-## Next steps
-- [ ] Add popularity/vote-weighted re-ranking
-- [ ] Try embeddings (e.g. sentence-transformers) instead of TF-IDF
-- [ ] Wrap in a simple Streamlit UI
+## Files
+- titanic_survival_prediction.py — main training + evaluation script
+- titanic_eda.png — exploratory data visualization
+- titanic_confusion_matrix.png — model confusion matrix
+- titanic_feature_importance.png — feature importance plot
