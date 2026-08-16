@@ -1,0 +1,13 @@
+Neural Networks - Study Notes
+
+A neural network is a computational model inspired by the structure of biological brains. It consists of layers of interconnected nodes, called neurons, that process information.
+
+The basic building block is the perceptron, which takes multiple inputs, applies weights to each, sums them, and passes the result through an activation function. Common activation functions include ReLU, sigmoid, and tanh.
+
+Backpropagation is the algorithm used to train neural networks. It works by computing the gradient of the loss function with respect to each weight, then updating the weights in the direction that reduces the loss. This process is repeated over many epochs until the network converges.
+
+Convolutional Neural Networks (CNNs) are specialized for image data. They use convolutional layers that apply filters across the input, allowing the network to learn spatial patterns like edges and textures. Pooling layers then reduce the spatial dimensions, making the network more efficient and less prone to overfitting.
+
+Recurrent Neural Networks (RNNs) are designed for sequential data, such as time series or text. Unlike feedforward networks, RNNs have connections that loop back, allowing them to maintain a form of memory across time steps. LSTM (Long Short-Term Memory) networks are a popular variant that solve the vanishing gradient problem common in vanilla RNNs, making them better at learning long-range dependencies.
+
+Overfitting occurs when a model learns the training data too well, including its noise, and fails to generalize to new data. Common techniques to combat overfitting include dropout, L1/L2 regularization, and data augmentation.

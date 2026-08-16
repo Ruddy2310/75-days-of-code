@@ -1,0 +1,16 @@
+# Secrets (added in later commits when LLM API keys come in)
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Vector store index files (added Day 27) - regeneratable, don't commit
+*.faiss
+*.index
+
+# OS / editor junk
+.DS_Store
+.vscode/
