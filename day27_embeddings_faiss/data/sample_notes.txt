@@ -1,0 +1,19 @@
+Neural networks are computing systems inspired by the biological neural networks in animal brains. A neural network is based on a collection of connected units called artificial neurons, which loosely model the neurons in a biological brain. Each connection can transmit a signal to other neurons, and the receiving neuron processes it and signals downstream neurons connected to it.
+
+Backpropagation is the algorithm used to train neural networks by computing the gradient of the loss function with respect to each weight in the network. It works by applying the chain rule, propagating the error backward from the output layer to the input layer, and using this gradient to update the weights via gradient descent.
+
+Gradient descent is an optimization algorithm used to minimize a loss function by iteratively moving in the direction of steepest descent, defined by the negative of the gradient. Common variants include stochastic gradient descent, mini-batch gradient descent, and adaptive methods like Adam, which adjusts the learning rate for each parameter individually.
+
+Overfitting occurs when a model learns the training data too well, including its noise and outliers, resulting in poor generalization to new, unseen data. Techniques to prevent overfitting include dropout, L1/L2 regularization, early stopping, and data augmentation.
+
+A convolutional neural network, or CNN, is a class of deep neural networks most commonly applied to analyzing visual imagery. CNNs use convolutional layers that apply filters across the input to detect local patterns like edges, textures, and shapes, and they typically include pooling layers to reduce spatial dimensions.
+
+Recurrent neural networks, or RNNs, are designed for sequential data such as time series or natural language. They maintain a hidden state that is updated at each time step, allowing information to persist across the sequence. Long Short-Term Memory networks, or LSTMs, are a special kind of RNN capable of learning long-term dependencies by using gates that control the flow of information.
+
+Word embeddings are dense vector representations of words that capture semantic meaning, such that words with similar meanings are located close together in the embedding space. Popular embedding techniques include Word2Vec, GloVe, and more recently, embeddings produced by transformer-based language models.
+
+The transformer architecture, introduced in the paper "Attention Is All You Need," relies entirely on self-attention mechanisms rather than recurrence or convolution to process sequences. Self-attention allows the model to weigh the importance of different words in a sequence relative to each other, regardless of their distance, which enables highly parallelizable training and strong performance on language tasks.
+
+FAISS, developed by Facebook AI Research, is a library for efficient similarity search and clustering of dense vectors. It supports several indexing strategies, from exact brute-force search using IndexFlatIP or IndexFlatL2, to approximate methods like IVF and HNSW that trade a small amount of accuracy for large gains in speed at scale.
+
+Sentence-transformers is a Python framework that extends transformer models like BERT to produce fixed-size sentence and paragraph embeddings that are well-suited for tasks such as semantic search, clustering, and paraphrase identification, since embeddings of semantically similar sentences end up close together in vector space.
