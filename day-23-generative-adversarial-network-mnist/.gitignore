@@ -1,0 +1,21 @@
+# Data & generated artifacts
+data/
+outputs/checkpoints/*.pt
+outputs/samples/*.png
+outputs/*.csv
+outputs/*.png
+!outputs/samples/.gitkeep
+!outputs/checkpoints/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+venv/
+.venv/
+*.egg-info/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

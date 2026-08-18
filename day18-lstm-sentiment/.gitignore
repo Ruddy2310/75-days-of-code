@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+*.egg-info/
+.DS_Store
+
+# keep the trained checkpoint out of git history if it's large;
+# comment this out if you want to ship the weights with the repo
+# saved_models/*.pt
