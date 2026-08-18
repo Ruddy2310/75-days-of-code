@@ -1,0 +1,35 @@
+Artificial Intelligence
+
+Artificial intelligence (AI) is a field of computer science focused on creating systems that can perform tasks that normally require human intelligence. These tasks include reasoning, learning, perception, language understanding, planning, and decision making.
+
+Machine Learning
+
+Machine learning is a major area of AI. Instead of explicitly programming every rule, a machine learning system learns patterns from data. Common learning types include supervised learning, unsupervised learning, and reinforcement learning.
+
+Deep Learning
+
+Deep learning is a subset of machine learning that uses neural networks with multiple layers. Deep learning has become important for computer vision, speech recognition, natural language processing, and generative AI.
+
+Retrieval-Augmented Generation
+
+Retrieval-Augmented Generation, commonly called RAG, combines information retrieval with language generation. A RAG system first searches an external knowledge source for relevant information. The retrieved information is then provided as context to a language model, which generates an answer using that context.
+
+Why RAG is useful
+
+RAG can make an AI application more useful when the required information is not contained in the model's original training data. It can also help ground answers in a specific collection of documents and make it possible to show the sources used for an answer.
+
+Embeddings
+
+An embedding converts text into a numerical vector. Texts with similar meanings tend to have vectors that are close to each other in the embedding space. Embeddings make semantic search possible.
+
+Vector databases
+
+A vector database or vector index stores numerical representations of data and supports similarity search. FAISS is a library that provides efficient similarity search over dense vectors.
+
+RAG pipeline
+
+A basic RAG pipeline contains document loading, text chunking, embedding generation, vector indexing, query embedding, similarity search, context construction, and answer generation.
+
+Important limitation
+
+A RAG system can still produce incorrect answers. Retrieval quality depends on the quality of the documents, chunking strategy, embedding model, and similarity search. An application should clearly distinguish retrieved evidence from unsupported claims.

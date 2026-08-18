@@ -1,0 +1,1 @@
+Day 28: Add semantic retrieval and RAG chatbot pipeline
