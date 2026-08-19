@@ -1,0 +1,3 @@
+# Vector Search
+
+Vector search represents text as numerical embeddings. Similar meanings tend to produce vectors that are close together in embedding space. FAISS provides efficient similarity search over dense vectors. A typical workflow is chunking, embedding, indexing, query embedding, and nearest-neighbor retrieval.

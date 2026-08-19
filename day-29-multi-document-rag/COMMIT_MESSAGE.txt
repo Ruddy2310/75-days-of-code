@@ -1,0 +1,9 @@
+Day 29: Add multi-document retrieval to RAG chatbot
+
+- Added multi-document ingestion
+- Added chunking with overlap
+- Added Sentence Transformer embeddings
+- Added FAISS retrieval
+- Added source metadata
+- Added optional Ollama generation
+- Added CLI and documentation
