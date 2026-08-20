@@ -1,0 +1,8 @@
+Day 30: Add web interface for RAG assistant
+
+- Added Flask web application
+- Added browser question interface
+- Added semantic retrieval and source attribution
+- Added optional local Ollama generation
+- Added reusable RAG engine
+- Added styling and documentation

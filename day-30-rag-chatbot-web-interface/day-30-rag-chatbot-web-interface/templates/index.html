@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Day 30 — RAG Assistant</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<main class="container">
+<p class="eyebrow">75 DAYS OF CODE • DAY 30</p>
+<h1>RAG Knowledge Assistant</h1>
+<p>Ask questions across your local document collection.</p>
+
+<form method="post" class="card">
+<label for="question">Your question</label>
+<textarea id="question" name="question" rows="4"
+placeholder="Ask something about the knowledge base...">{{ question }}</textarea>
+<label class="check"><input type="checkbox" name="use_llm"> Use local Ollama for final answer</label>
+<button type="submit">Search Knowledge Base</button>
+</form>
+
+{% if answer %}
+<section class="card">
+<h2>Answer</h2>
+<div class="answer">{{ answer }}</div>
+<h3>Sources</h3>
+<ul>
+{% for source in sources %}
+<li>{{ source.path }} — score {{ source.score }}</li>
+{% endfor %}
+</ul>
+</section>
+{% endif %}
+</main>
+</body>
+</html>

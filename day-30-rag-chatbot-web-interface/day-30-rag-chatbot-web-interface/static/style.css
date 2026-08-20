@@ -1,0 +1,13 @@
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f5f7;color:#17202a}
+.container{width:min(900px,92%);margin:55px auto}
+.eyebrow{font-size:13px;font-weight:bold;letter-spacing:1.5px}
+h1{font-size:42px;margin:8px 0}
+p{color:#5d6872}
+.card{background:#fff;padding:24px;border-radius:14px;margin:20px 0;box-shadow:0 8px 25px rgba(0,0,0,.07)}
+label{display:block;font-weight:bold;margin-bottom:10px}
+textarea{width:100%;padding:14px;border:1px solid #ccd3da;border-radius:10px;font:inherit;resize:vertical}
+.check{margin:16px 0;font-weight:normal}
+button{border:0;border-radius:9px;padding:12px 18px;font-weight:bold;cursor:pointer}
+.answer{white-space:pre-wrap;line-height:1.6}
+li{margin:8px 0}
