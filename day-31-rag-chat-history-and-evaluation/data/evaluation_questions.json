@@ -1,0 +1,5 @@
+[
+{"question":"What does Retrieval-Augmented Generation combine?","expected_source":"rag_basics.md"},
+{"question":"What library provides efficient vector similarity search?","expected_source":"vector_search.txt"},
+{"question":"What does Flask do in the web application?","expected_source":"web_application.md"}
+]
