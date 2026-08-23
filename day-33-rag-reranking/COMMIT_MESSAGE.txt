@@ -1,0 +1,8 @@
+Day 33: Add Cross-Encoder reranking to RAG
+
+- Added second-stage reranking
+- Added Cross-Encoder scoring
+- Combined hybrid retrieval with reranking
+- Preserved source attribution
+- Extended the RAG web application
+- Preserved conversation history
