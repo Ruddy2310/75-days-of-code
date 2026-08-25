@@ -1,0 +1,5 @@
+[
+  {"question":"What does RAG combine?","expected_source":"rag_basics.md"},
+  {"question":"What is FAISS used for?","expected_source":"vector_search.txt"},
+  {"question":"Why is reranking used in retrieval?","expected_source":"reranking.md"}
+]

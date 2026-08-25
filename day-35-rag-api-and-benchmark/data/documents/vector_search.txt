@@ -1,0 +1,5 @@
+# Vector Search
+
+Vector search represents text as numerical embeddings. Similar meanings tend
+to have similar vectors. FAISS provides efficient similarity search over dense
+vectors. Semantic retrieval finds conceptually related text.
