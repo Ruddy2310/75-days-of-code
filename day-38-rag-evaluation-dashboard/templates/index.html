@@ -1,0 +1,14 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Day 38 — RAG Evaluation</title><link rel="stylesheet" href="/static/style.css"></head><body><main class="container">
+<p class="eyebrow">75 DAYS OF CODE • DAY 38</p><h1>RAG Evaluation Dashboard</h1><p>Measure retrieval quality with Hit@1, Hit@3 and MRR.</p>
+<section class="stats"><div class="stat"><strong id="hit1">—</strong><span>Hit@1</span></div><div class="stat"><strong id="hit3">—</strong><span>Hit@3</span></div><div class="stat"><strong id="mrr">—</strong><span>MRR</span></div><div class="stat"><strong>{{cache.entries}}</strong><span>Cache Entries</span></div></section>
+<section class="card"><h2>Evaluate Retrieval</h2><button onclick="runEvaluation()">Run Evaluation</button><div id="evaluation"></div></section>
+<section class="card"><h2>Ask the Assistant</h2><form method="post"><textarea name="message" rows="3" placeholder="Ask about the knowledge base..."></textarea><label><input type="checkbox" name="use_llm"> Use local Ollama</label><button>Send Message</button></form></section>
+{% if result %}<section class="card"><h2>Retrieval Details</h2><p><b>Query:</b> {{result.retrieval_query}}</p><h3>Sources</h3><ul>{% for s in result.sources %}<li>{{s.path}} — Hybrid {{s.hybrid}}, Rerank {{s.rerank}}</li>{% endfor %}</ul></section>{% endif %}
+{% if history %}<section class="card"><h2>Conversation</h2>{% for x in history %}<div class="message"><b>{{x.role|capitalize}}</b><div>{{x.content}}</div></div>{% endfor %}<form method="post" action="/clear"><button>Clear Conversation</button></form></section>{% endif %}
+<section class="card"><h2>API</h2><pre>POST /api/chat
+GET  /api/evaluate
+GET  /api/cache
+GET  /api/health</pre></section>
+</main><script>
+async function runEvaluation(){const box=document.getElementById("evaluation");box.textContent="Running evaluation...";try{const r=await fetch("/api/evaluate");const d=await r.json();document.getElementById("hit1").textContent=(d.hit_at_1*100).toFixed(1)+"%";document.getElementById("hit3").textContent=(d.hit_at_3*100).toFixed(1)+"%";document.getElementById("mrr").textContent=d.mrr.toFixed(3);box.innerHTML="<p>"+d.total_questions+" questions completed.</p><ul>"+d.details.map(x=>"<li>"+x.question+" → rank "+(x.rank??"miss")+"</li>").join("")+"</ul>"}catch(e){box.textContent="Evaluation failed: "+e}}
+</script></body></html>
