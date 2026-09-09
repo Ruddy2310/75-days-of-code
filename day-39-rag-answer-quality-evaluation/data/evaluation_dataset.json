@@ -1,0 +1,22 @@
+[
+  {
+    "question": "What is retrieval augmented generation?",
+    "answer": "Retrieval augmented generation combines document retrieval with a language model. Relevant information is retrieved from a knowledge base and supplied to the model so it can generate a grounded answer.",
+    "reference_answer": "Retrieval augmented generation retrieves relevant information from a knowledge base and provides that context to a language model to generate a more grounded answer."
+  },
+  {
+    "question": "What is a vector database used for?",
+    "answer": "A vector database stores embeddings and supports similarity search, allowing applications to find semantically related documents.",
+    "reference_answer": "A vector database stores vector embeddings and enables similarity search to retrieve semantically similar information."
+  },
+  {
+    "question": "Why is chunking important in RAG?",
+    "answer": "Chunking splits large documents into smaller pieces that can be embedded and retrieved efficiently. Good chunking helps retrieval return focused context.",
+    "reference_answer": "Chunking divides documents into smaller passages so embeddings and retrieval can work effectively and return focused context."
+  },
+  {
+    "question": "What is semantic similarity?",
+    "answer": "Semantic similarity measures how close two pieces of text are in meaning, often using vector embeddings.",
+    "reference_answer": "Semantic similarity measures the degree to which two texts express similar meaning, commonly using embeddings."
+  }
+]

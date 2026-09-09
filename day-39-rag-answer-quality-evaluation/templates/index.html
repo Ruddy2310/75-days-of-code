@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Day 39 — RAG Answer Quality Evaluation</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>RAG Answer Quality Evaluation</h1>
+    <p class="subtitle">Day 39 · Incremental Commit #14</p>
+
+    <section class="summary">
+      <div><strong>{{ count }}</strong><span>Questions</span></div>
+      <div><strong>{{ "%.1f"|format(average * 100) }}%</strong><span>Average Quality</span></div>
+    </section>
+
+    {% for item in results %}
+    <article class="card">
+      <h2>{{ loop.index }}. {{ item.question }}</h2>
+      <p><b>Generated answer:</b> {{ item.answer }}</p>
+      <p><b>Reference answer:</b> {{ item.reference }}</p>
+      <div class="metrics">
+        <span>Semantic: {{ "%.1f"|format(item.semantic_similarity * 100) }}%</span>
+        <span>Keywords: {{ "%.1f"|format(item.keyword_coverage * 100) }}%</span>
+        <span>Completeness: {{ "%.1f"|format(item.completeness * 100) }}%</span>
+        <span class="score">Quality: {{ "%.1f"|format(item.quality_score * 100) }}%</span>
+      </div>
+    </article>
+    {% endfor %}
+  </main>
+</body>
+</html>
