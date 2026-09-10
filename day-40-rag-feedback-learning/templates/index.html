@@ -1,0 +1,38 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RAG Feedback Learning</title><link rel="stylesheet" href="/static/style.css"></head>
+<body><main>
+<p class="eyebrow">75 Days of Code · Day 40</p><h1>RAG Feedback Learning</h1>
+<p>Collect user feedback and measure answer quality.</p>
+<section id="stats" class="cards"></section>
+<section class="panel"><h2>Submit Feedback</h2>
+<form id="form"><input id="query" placeholder="User query" required>
+<textarea id="answer" placeholder="Generated answer" required></textarea>
+<div class="row"><select id="rating"><option value="up">👍 Helpful</option><option value="down">👎 Not helpful</option></select>
+<input id="score" type="number" min="0" max="1" step=".01" placeholder="Quality score 0–1"></div>
+<button>Save Feedback</button></form><p id="status"></p></section>
+<section class="panel"><div class="title"><h2>Recent Feedback</h2><button type="button" onclick="load()">Refresh</button></div><div id="list"></div></section>
+</main>
+<script>
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+async function load(){
+ const s=await fetch('/api/stats').then(r=>r.json());
+ document.querySelector('#stats').innerHTML=[
+ ['Total',s.total],['Helpful',s.positive],['Not Helpful',s.negative],
+ ['Positive Rate',s.positive_rate+'%'],['Avg Quality',s.average_quality_score??'—']
+ ].map(x=>`<div class="card"><span>${x[0]}</span><b>${x[1]}</b></div>`).join('');
+ const rows=await fetch('/api/feedback').then(r=>r.json());
+ document.querySelector('#list').innerHTML=rows.slice(0,12).map(r=>
+ `<article><b>${r.rating==='up'?'👍':'👎'} ${esc(r.query)}</b><p>${esc(r.answer)}</p><small>${new Date(r.timestamp).toLocaleString()} · quality: ${r.quality_score??'—'}</small></article>`
+ ).join('') || '<p class="muted">No feedback yet.</p>';
+}
+document.querySelector('#form').onsubmit=async e=>{
+ e.preventDefault();
+ const score=document.querySelector('#score').value;
+ const r=await fetch('/api/feedback',{method:'POST',headers:{'Content-Type':'application/json'},
+ body:JSON.stringify({query:query.value,answer:answer.value,rating:rating.value,quality_score:score===''?null:Number(score),sources:[]})});
+ status.textContent=r.ok?'Feedback saved successfully.':'Could not save feedback.';
+ if(r.ok){e.target.reset();load();}
+};
+load();
+</script></body></html>
