@@ -1,0 +1,23 @@
+[
+  {
+    "timestamp": "2026-09-09T10:30:00+00:00",
+    "query": "What is retrieval augmented generation?",
+    "answer": "RAG retrieves relevant information and provides it to a language model before generating an answer.",
+    "rating": "up",
+    "quality_score": 0.92
+  },
+  {
+    "timestamp": "2026-09-10T12:15:00+00:00",
+    "query": "Why use vector search?",
+    "answer": "Vector search finds semantically similar content using embeddings.",
+    "rating": "up",
+    "quality_score": 0.87
+  },
+  {
+    "timestamp": "2026-09-10T16:20:00+00:00",
+    "query": "How can RAG reduce hallucinations?",
+    "answer": "RAG can ground generation in retrieved source content.",
+    "rating": "down",
+    "quality_score": 0.51
+  }
+]
