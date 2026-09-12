@@ -1,0 +1,6 @@
+[
+ {"timestamp":"2026-09-09T10:30:00+00:00","query":"What is retrieval augmented generation?","answer":"RAG retrieves relevant information before generation.","rating":"up","quality_score":0.92},
+ {"timestamp":"2026-09-10T12:15:00+00:00","query":"Why use vector search?","answer":"Vector search finds semantically similar content using embeddings.","rating":"up","quality_score":0.87},
+ {"timestamp":"2026-09-10T16:20:00+00:00","query":"How can RAG reduce hallucinations?","answer":"RAG can ground generation in retrieved source content.","rating":"down","quality_score":0.51},
+ {"timestamp":"2026-09-11T09:00:00+00:00","query":"How does chunking affect retrieval?","answer":"Chunking affects which context is retrieved.","rating":"down","quality_score":0.55}
+]
