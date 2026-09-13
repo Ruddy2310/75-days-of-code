@@ -1,0 +1,1 @@
+[{"query":"What is RAG?","expected_route":"factual"},{"query":"Compare vector search and keyword search","expected_route":"comparison"},{"query":"How do I implement FAISS in Python?","expected_route":"technical"},{"query":"Explain embeddings","expected_route":"general"}]
