@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Explainable RAG Router</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<main>
+<p class="eyebrow">75 Days of Code · Day 44</p>
+<h1>Explainable RAG Router</h1>
+<p>See why a query was routed to a retrieval strategy.</p>
+
+<section class="panel">
+<form id="form">
+<textarea id="query" placeholder="Enter a question..." required></textarea>
+<button>Explain Route</button>
+</form>
+</section>
+
+<section id="result" class="panel hidden"></section>
+
+<section class="panel">
+<h2>Examples</h2>
+<div id="examples"></div>
+</section>
+</main>
+
+<script>
+const box = document.querySelector("#query");
+
+async function explain() {
+    const query = box.value.trim();
+    if (!query) return;
+
+    const response = await fetch("/api/explain", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({query})
+    });
+
+    const data = await response.json();
+    const result = document.querySelector("#result");
+    result.classList.remove("hidden");
+
+    if (data.error) {
+        result.innerHTML = `<b>${data.error}</b>`;
+        return;
+    }
+
+    result.innerHTML = `
+        <div class="route">${data.route}</div>
+        <h2>${data.strategy} retrieval</h2>
+        <p><b>Confidence:</b> ${data.confidence}</p>
+        <p><b>Why:</b> ${data.reason}</p>
+        <p><b>Matched keywords:</b>
+        ${data.matched_keywords.length ? data.matched_keywords.join(", ") : "none"}</p>
+        <h3>Decision Trace</h3>
+        <ol>${data.decision_trace.map(x => `<li>${x}</li>`).join("")}</ol>
+        <h3>Route Scores</h3>
+        <pre>${JSON.stringify(data.route_scores, null, 2)}</pre>
+    `;
+}
+
+document.querySelector("#form").addEventListener("submit", e => {
+    e.preventDefault();
+    explain();
+});
+
+async function loadExamples() {
+    const examples = await fetch("/api/examples").then(r => r.json());
+
+    document.querySelector("#examples").innerHTML = examples.map(x =>
+        `<button class="example" onclick='box.value=${JSON.stringify(x)};explain()'>${x}</button>`
+    ).join("");
+}
+
+loadExamples();
+</script>
+</body>
+</html>
